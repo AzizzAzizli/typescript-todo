@@ -7,6 +7,6 @@ interface InputProps {
 
 export const Input:React.FC<InputProps> = ({inputRef}) => {
   return (
-    <div><input ref={inputRef} className='  capitalize text-slate-700  font-semibold  w-full p-1 rounded-lg' type="text" /></div>
+    <div><input ref={inputRef} placeholder='Add...' className='  capitalize text-slate-700  font-semibold  w-full p-1 rounded-lg' type="text" /></div>
   )
 }
