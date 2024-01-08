@@ -1,23 +1,25 @@
 import { Navigation } from "@/shared/components/Nav";
 import { Input } from "@/shared/components/input";
 import { Button } from "@/shared/components/button";
-import { SetStateAction, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { upperCase } from "@/shared/util";
 
 export default function Home() {
   const ref = useRef<null | HTMLInputElement>(null);
 
-  const [userDatas, setUserData] = useState<string[]>([]);
+  const [userDatas, setUserData] = useState<(any | string)[]>([]);
 
   function deleteUserData(id: string | number) {
-    setUserData((prev) => prev.filter((_, index:string|number) => index != id));
+    setUserData((prev) =>
+      prev.filter((_, index: string | number) => index != id)
+    );
   }
 
   function handleInputValue(): void {
     let value: string | undefined = ref.current?.value!;
     // console.log(value);
     if (value) {
-      setUserData((prev)=> [value, ...prev]);
+      setUserData((prev) => [value, ...prev]);
       ref.current!.value = "";
       // console.log(userDatas);
     }
